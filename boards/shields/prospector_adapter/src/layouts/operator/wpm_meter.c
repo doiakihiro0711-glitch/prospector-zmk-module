@@ -177,6 +177,7 @@ int zmk_widget_wpm_meter_init(struct zmk_widget_wpm_meter *widget, lv_obj_t *par
         lv_obj_set_style_border_width(widget->bars[i], 0, LV_PART_MAIN);
         lv_obj_set_style_radius(widget->bars[i], 1, LV_PART_MAIN);
         lv_obj_set_style_pad_all(widget->bars[i], 0, LV_PART_MAIN);
+        lv_obj_add_flag(widget->bars[i], LV_OBJ_FLAG_HIDDEN);   // ← 追加
     }
 
     widget->peak_indicator = lv_obj_create(widget->obj);
@@ -196,6 +197,7 @@ int zmk_widget_wpm_meter_init(struct zmk_widget_wpm_meter *widget, lv_obj_t *par
     lv_obj_set_style_pad_hor(widget->wpm_label, 6, LV_PART_MAIN);
     lv_obj_set_style_pad_ver(widget->wpm_label, 4, LV_PART_MAIN);
     lv_obj_align(widget->wpm_label, LV_ALIGN_TOP_LEFT, -7, -9);
+    lv_obj_add_flag(widget->wpm_label, LV_OBJ_FLAG_HIDDEN);   // ← 追加
 
     widget->layer_label = lv_label_create(widget->obj);
     lv_label_set_text(widget->layer_label, "");
@@ -207,6 +209,7 @@ int zmk_widget_wpm_meter_init(struct zmk_widget_wpm_meter *widget, lv_obj_t *par
     lv_obj_set_style_pad_top(widget->layer_label, 7, LV_PART_MAIN);
     lv_obj_set_style_pad_bottom(widget->layer_label, 3, LV_PART_MAIN);
     lv_obj_align(widget->layer_label, LV_ALIGN_BOTTOM_RIGHT, 9, 7);
+    lv_obj_align(widget->layer_label, LV_ALIGN_CENTER, 0, 0);
 
     sys_slist_append(&widgets, &widget->node);
     widget_wpm_meter_init();

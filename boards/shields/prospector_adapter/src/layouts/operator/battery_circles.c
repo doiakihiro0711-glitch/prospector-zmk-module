@@ -361,7 +361,7 @@ int zmk_widget_battery_circles_init(struct zmk_widget_battery_circles *widget, l
     init_styles();
 
     widget->obj = lv_obj_create(parent);
-    lv_obj_set_size(widget->obj, 132, 62);
+    lv_obj_set_size(widget->obj, 198, 62);
     lv_obj_set_style_bg_opa(widget->obj, LV_OPA_TRANSP, LV_PART_MAIN);
     lv_obj_set_style_border_width(widget->obj, 0, LV_PART_MAIN);
     lv_obj_set_style_pad_all(widget->obj, 0, LV_PART_MAIN);
@@ -414,7 +414,7 @@ int zmk_widget_battery_circles_init(struct zmk_widget_battery_circles *widget, l
     } else if (PERIPHERAL_COUNT == 2) {
         int arc_size = 58;
         int y_center = (62 - arc_size) / 2;
-        int spacing = 66;
+        int spacing = 140;
 
         for (int i = 0; i < 2; i++) {
             lv_obj_t *arc = lv_arc_create(widget->obj);

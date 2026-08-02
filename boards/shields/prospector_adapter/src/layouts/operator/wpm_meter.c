@@ -35,7 +35,7 @@ struct layer_state {
 static void wpm_meter_render(int active_bars) {
     struct zmk_widget_wpm_meter *widget;
     SYS_SLIST_FOR_EACH_CONTAINER(&widgets, widget, node) {
-        if (active_bars != prev_active_bars) {
+if (active_bars != prev_active_bars) {
             int min_bar = (active_bars < prev_active_bars) ? active_bars : prev_active_bars;
             int max_bar = (active_bars > prev_active_bars) ? active_bars : prev_active_bars;
             for (int i = min_bar; i < max_bar; i++) {
@@ -46,9 +46,8 @@ static void wpm_meter_render(int active_bars) {
             }
             prev_active_bars = active_bars;
         }
-        
-            lv_obj_add_flag(widget->peak_indicator, LV_OBJ_FLAG_HIDDEN);
-        }
+
+        lv_obj_add_flag(widget->peak_indicator, LV_OBJ_FLAG_HIDDEN);
 
         char wpm_text[4];
         snprintf(wpm_text, sizeof(wpm_text), "%d", (int)(displayed_wpm + 0.5f));
@@ -197,7 +196,6 @@ int zmk_widget_wpm_meter_init(struct zmk_widget_wpm_meter *widget, lv_obj_t *par
     lv_obj_set_style_pad_hor(widget->layer_label, 8, LV_PART_MAIN);
     lv_obj_set_style_pad_top(widget->layer_label, 7, LV_PART_MAIN);
     lv_obj_set_style_pad_bottom(widget->layer_label, 3, LV_PART_MAIN);
-    lv_obj_align(widget->layer_label, LV_ALIGN_BOTTOM_RIGHT, 9, 7);
     lv_obj_align(widget->layer_label, LV_ALIGN_CENTER, 0, 0);
 
     sys_slist_append(&widgets, &widget->node);

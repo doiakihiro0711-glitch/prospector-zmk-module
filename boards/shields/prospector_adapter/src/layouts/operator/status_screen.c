@@ -33,6 +33,8 @@ lv_obj_t *zmk_display_status_screen() {
 
     zmk_widget_output_init(&output_widget, screen);
     lv_obj_set_pos(zmk_widget_output_obj(&output_widget), 148, 170);
+    lv_obj_add_flag(zmk_widget_output_obj(&output_widget), LV_OBJ_FLAG_HIDDEN);   // ← 追加(この1行だけ)
+
 
     return screen;
 }
